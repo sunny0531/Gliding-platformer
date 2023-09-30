@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cadgcwi2youki"]
+
+[ext_resource type="PackedScene" uid="uid://c7dw3k7imftgk" path="res://platform.tscn" id="1_84cwq"]
+[ext_resource type="PackedScene" uid="uid://p4pi5ip4h7kd" path="res://player.tscn" id="2_8ivjy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tq4l"]
+size = Vector2(725, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie7et"]
+size = Vector2(1162, 10)
+
+[node name="Level" type="Level"]
+
+[node name="Platform2" parent="." instance=ExtResource("1_84cwq")]
+position = Vector2(192, 616)
+deceleration = 0
+
+[node name="CollisionShape2D" parent="Platform2" index="0"]
+position = Vector2(349.5, 22.5)
+shape = SubResource("RectangleShape2D_3tq4l")
+
+[node name="Platform" parent="." instance=ExtResource("1_84cwq")]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" parent="Platform" index="0"]
+position = Vector2(571, 5)
+shape = SubResource("RectangleShape2D_ie7et")
+
+[node name="Player" parent="." instance=ExtResource("2_8ivjy")]
+
+[editable path="Platform2"]
+[editable path="Platform"]

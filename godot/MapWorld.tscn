@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxkdydxeup0mv"]
+
+[ext_resource type="PackedScene" uid="uid://p4pi5ip4h7kd" path="res://player.tscn" id="1_7gvwc"]
+[ext_resource type="Script" path="res://MapWorld.gd" id="1_qbktk"]
+[ext_resource type="PackedScene" uid="uid://c7dw3k7imftgk" path="res://platform.tscn" id="2_a48pm"]
+[ext_resource type="PackedScene" uid="uid://cad8kglalmplb" path="res://statistics.tscn" id="3_ff17d"]
+[ext_resource type="PackedScene" uid="uid://ba2wlgnyug4i5" path="res://portal.tscn" id="4_2ukhy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5opb6"]
+size = Vector2(1160, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcfda"]
+size = Vector2(416, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gswtt"]
+size = Vector2(160, 16)
+
+[node name="Level" type="Level"]
+script = ExtResource("1_qbktk")
+
+[node name="Player" parent="." instance=ExtResource("1_7gvwc")]
+position = Vector2(64, 576)
+
+[node name="Platform" parent="." instance=ExtResource("2_a48pm")]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" parent="Platform" index="0"]
+position = Vector2(572, 0)
+shape = SubResource("RectangleShape2D_5opb6")
+
+[node name="Statistics" parent="." instance=ExtResource("3_ff17d")]
+
+[node name="Portal" parent="." instance=ExtResource("4_2ukhy")]
+position = Vector2(296, 576)
+
+[node name="Platform2" parent="." instance=ExtResource("2_a48pm")]
+position = Vector2(200, 496)
+
+[node name="CollisionShape2D" parent="Platform2" index="0"]
+position = Vector2(200, 4)
+shape = SubResource("RectangleShape2D_dcfda")
+
+[node name="Portal2" parent="." instance=ExtResource("4_2ukhy")]
+position = Vector2(480, 432)
+
+[node name="Platform5" parent="." instance=ExtResource("2_a48pm")]
+position = Vector2(80, 128)
+
+[node name="CollisionShape2D" parent="Platform5" index="0"]
+position = Vector2(0, 224)
+shape = SubResource("RectangleShape2D_gswtt")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
+[connection signal="body_entered" from="Portal2" to="." method="_on_portal_2_body_entered"]
+
+[editable path="Platform"]
+[editable path="Platform2"]
+[editable path="Platform5"]

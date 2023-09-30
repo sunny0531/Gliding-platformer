@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cad8kglalmplb"]
+
+[ext_resource type="Script" path="res://statistics.gd" id="1_a672c"]
+
+[node name="Statistics" type="RichTextLabel"]
+offset_left = 856.0
+offset_right = 1152.0
+offset_bottom = 320.0
+script = ExtResource("1_a672c")
+metadata/_edit_group_ = true
