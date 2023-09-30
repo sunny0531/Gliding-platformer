@@ -1,4 +1,4 @@
-extends Level
+extends Node2D
 
 
 func _on_portal_2_body_entered(body):

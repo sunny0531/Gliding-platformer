@@ -17,8 +17,8 @@ var gravity:float
 var gliding_gravity:float
 
 func _ready():
-	gravity=get_node("/root/Level").get("gravity")
-	gliding_gravity=get_node("/root/Level").get("gliding_gravity")	
+	gravity=get_node("../Environment").get("gravity")
+	gliding_gravity=get_node("../Environment").get("gliding_gravity")	
 func _physics_process(delta):
 	apply_gravity(delta)
 	jump_and_glide(delta)

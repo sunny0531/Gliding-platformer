@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxkdydxeup0mv"]
+[gd_scene load_steps=10 format=3 uid="uid://bxkdydxeup0mv"]
 
 [ext_resource type="PackedScene" uid="uid://p4pi5ip4h7kd" path="res://player.tscn" id="1_7gvwc"]
 [ext_resource type="Script" path="res://MapWorld.gd" id="1_qbktk"]
 [ext_resource type="PackedScene" uid="uid://c7dw3k7imftgk" path="res://platform.tscn" id="2_a48pm"]
+[ext_resource type="PackedScene" uid="uid://bmxqnbrnlb253" path="res://Environment.tscn" id="2_ts3lt"]
 [ext_resource type="PackedScene" uid="uid://cad8kglalmplb" path="res://statistics.tscn" id="3_ff17d"]
 [ext_resource type="PackedScene" uid="uid://ba2wlgnyug4i5" path="res://portal.tscn" id="4_2ukhy"]
 
@@ -15,8 +16,10 @@ size = Vector2(416, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gswtt"]
 size = Vector2(160, 16)
 
-[node name="Level" type="Level"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_qbktk")
+
+[node name="Environment" parent="." instance=ExtResource("2_ts3lt")]
 
 [node name="Player" parent="." instance=ExtResource("1_7gvwc")]
 position = Vector2(64, 576)
